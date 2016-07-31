@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SDCAV2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AnimalCounts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="facility_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="RecordStatus" Type="int" />
+          <Property Name="RecordYear" Type="int" Nullable="false" />
+          <Property Name="RecordMonth" Type="int" Nullable="false" />
+          <Property Name="AdultC" Type="int" />
+          <Property Name="AdultF" Type="int" />
+          <Property Name="UT5MC" Type="int" />
+          <Property Name="UT5MF" Type="int" />
+          <Property Name="AgeUnknownC" Type="int" />
+          <Property Name="AgeUnknownF" Type="int" />
+          <Property Name="AnimalCountType" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnimalIntake">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="facility_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="RecordStatus" Type="int" />
+          <Property Name="RecordYear" Type="int" Nullable="false" />
+          <Property Name="RecordMonth" Type="int" Nullable="false" />
+          <Property Name="AdultC_StrayAtLarge" Type="int" />
+          <Property Name="UT5MC_StrayAtLarge" Type="int" />
+          <Property Name="AdultF_StrayAtLarge" Type="int" />
+          <Property Name="UT5MF_StrayAtLarge" Type="int" />
+          <Property Name="AdultC_RelinquishedByOwner" Type="int" />
+          <Property Name="UT5MC_RelinquishedByOwner" Type="int" />
+          <Property Name="AdultF_RelinquishedByOwner" Type="int" />
+          <Property Name="UT5MF_RelinquishedByOwner" Type="int" />
+          <Property Name="AdultC_OwnerRequestedEuthanasia" Type="int" />
+          <Property Name="UT5MC_OwnerRequestedEuthanasia" Type="int" />
+          <Property Name="AdultF_OwnerRequestedEuthanasia" Type="int" />
+          <Property Name="UT5MF_OwnerRequestedEuthanasia" Type="int" />
+          <Property Name="AdultC_TransferredFromAgency" Type="int" />
+          <Property Name="UT5MC_TransferredFromAgency" Type="int" />
+          <Property Name="Adultf_TransferredFromAgency" Type="int" />
+          <Property Name="UT5Mf_TransferredFromAgency" Type="int" />
+          <Property Name="AdultC_OtherIntakes" Type="int" />
+          <Property Name="UT5MC_OtherIntakes" Type="int" />
+          <Property Name="AdultF_OtherIntakes" Type="int" />
+          <Property Name="UT5MF_OtherIntakes" Type="int" />
+          <Property Name="AgeUnknownC_StrayAtLarge" Type="int" />
+          <Property Name="AgeUnknownF_StrayAtLarge" Type="int" />
+          <Property Name="AgeUnknownC_RelinquishedByOwner" Type="int" />
+          <Property Name="AgeUnknownF_RelinquishedByOwner" Type="int" />
+          <Property Name="AgeUnknownC_OwnerRequestedEuthenasia" Type="int" />
+          <Property Name="AgeUnknownF_OwnerRequestedEuthenasia" Type="int" />
+          <Property Name="AgeUnknownC_TransferredFromAgency" Type="int" />
+          <Property Name="AgeUnknownF_TransferredFromAgency" Type="int" />
+          <Property Name="AgeUnknownC_OtherIntakes" Type="int" />
+          <Property Name="AgeUnknownF_OtherIntakes" Type="int" />
+          <Property Name="C_ReturnToField" Type="int" />
+          <Property Name="F_ReturnToField" Type="int" />
+        </EntityType>
+        <EntityType Name="AnimalOutcome">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="facility_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="RecordStatus" Type="int" />
+          <Property Name="RecordYear" Type="int" Nullable="false" />
+          <Property Name="RecordMonth" Type="int" Nullable="false" />
+          <Property Name="AdultC_Adoption" Type="int" />
+          <Property Name="UT5MC_Adoption" Type="int" />
+          <Property Name="AdultF_Adoption" Type="int" />
+          <Property Name="UT5MF_Adoption" Type="int" />
+          <Property Name="AdultC_ReturnedToOwner" Type="int" />
+          <Property Name="UT5MC_ReturnedToOwner" Type="int" />
+          <Property Name="AdultF_ReturnedToOwner" Type="int" />
+          <Property Name="UT5MF_ReturnedToOwner" Type="int" />
+          <Property Name="AdultC_TransferredToAnotherAgency" Type="int" />
+          <Property Name="UT5MC_TransferredToAnotherAgency" Type="int" />
+          <Property Name="AdultF_TransferredToAnotherAgency" Type="int" />
+          <Property Name="UT5MF_TransferredToAnotherAgency" Type="int" />
+          <Property Name="AdultC_ReturnedToField" Type="int" />
+          <Property Name="UT5MC_ReturnedToField" Type="int" />
+          <Property Name="Adultf_ReturnedToField" Type="int" />
+          <Property Name="UT5Mf_ReturnedToField" Type="int" />
+          <Property Name="AdultC_OtherLiveOutcome" Type="int" />
+          <Property Name="UT5MC_OtherLiveOutcome" Type="int" />
+          <Property Name="AdultF_OtherLiveOutcome" Type="int" />
+          <Property Name="UT5MF_OtherLiveOutcome" Type="int" />
+          <Property Name="AdultC_DiedInCare" Type="int" />
+          <Property Name="UT5MC_DiedInCare" Type="int" />
+          <Property Name="AdultF_DiedInCare" Type="int" />
+          <Property Name="UT5MF_DiedInCare" Type="int" />
+          <Property Name="AdultC_LostInCare" Type="int" />
+          <Property Name="UT5MC_LostInCare" Type="int" />
+          <Property Name="AdultF_LostInCare" Type="int" />
+          <Property Name="UT5MF_LostInCare" Type="int" />
+          <Property Name="AdultC_ShelterEuthanasia" Type="int" />
+          <Property Name="UT5MC_ShelterEuthanasia" Type="int" />
+          <Property Name="AdultF_ShelterEuthanasia" Type="int" />
+          <Property Name="UT5MF_ShelterEuthanasia" Type="int" />
+          <Property Name="AdultC_OwnerIntendedEuthanasia" Type="int" />
+          <Property Name="UT5MC_OwnerIntendedEuthanasia" Type="int" />
+          <Property Name="Adultf_OwnerIntendedEuthanasia" Type="int" />
+          <Property Name="UT5Mf_OwnerIntendedEuthanasia" Type="int" />
+          <Property Name="AgeUnknownC_Adoption" Type="int" />
+          <Property Name="AgeUnknownF_Adoption" Type="int" />
+          <Property Name="AgeUnknownC_ReturnedToOwner" Type="int" />
+          <Property Name="AgeUnknownF_ReturnedToOwner" Type="int" />
+          <Property Name="AgeUnknownC_TransferredToAnotherAgency" Type="int" />
+          <Property Name="AgeUnknownF_TransferredToAnotherAgency" Type="int" />
+          <Property Name="AgeUnknownC_ReturnedToField" Type="int" />
+          <Property Name="AgeUnknownF_ReturnedToField" Type="int" />
+          <Property Name="AgeUnknownC_OtherLiveOutcome" Type="int" />
+          <Property Name="AgeUnknownF_OtherLiveOutcome" Type="int" />
+          <Property Name="AgeUnknownC_DiedInCare" Type="int" />
+          <Property Name="AgeUnknownF_DiedInCare" Type="int" />
+          <Property Name="AgeUnknownC_LostInCare" Type="int" />
+          <Property Name="AgeUnknownF_LostInCare" Type="int" />
+          <Property Name="AgeUnknownC_ShelterEuthanasia" Type="int" />
+          <Property Name="AgeUnknownF_ShelterEuthanasia" Type="int" />
+          <Property Name="AgeUnknownC_OwnerIntendedEuthanasia" Type="int" />
+          <Property Name="AgeUnknownF_OwnerIntendedEuthanasia" Type="int" />
+        </EntityType>
+        <EntityType Name="Org_Facility">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Org_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nchar" MaxLength="10" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="County" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="EstCommIntake" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="ReminderSentDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nchar" MaxLength="10" />
+          <Property Name="County" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebsiteURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Budget" Type="int" />
+          <Property Name="OrgEstAnnualIntake" Type="int" />
+          <Property Name="CommEstAnnualIntake" Type="nchar" MaxLength="10" />
+          <Property Name="AuthorizedPerson" Type="int" />
+          <Property Name="PrimaryContact" Type="int" />
+          <Property Name="SecondContact" Type="int" />
+          <Property Name="OtherContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Logo" Type="varchar" MaxLength="255" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDCA_Application" Type="varchar(max)" />
+          <Property Name="FacilityDetail" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgreeCompleteDataMatrix" Type="bit" />
+          <Property Name="ShareData" Type="bit" />
+          <Property Name="SACReview" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="varchar(max)" />
+          <Property Name="ReferringOrg" Type="nvarchar" MaxLength="500" />
+          <Property Name="EIN" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AnimalCounts_Org_Facility">
+          <End Role="Org_Facility" Type="Self.Org_Facility" Multiplicity="1" />
+          <End Role="AnimalCounts" Type="Self.AnimalCounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org_Facility">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AnimalCounts">
+              <PropertyRef Name="facility_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimalIntake_Org_Facility">
+          <End Role="Org_Facility" Type="Self.Org_Facility" Multiplicity="1" />
+          <End Role="AnimalIntake" Type="Self.AnimalIntake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org_Facility">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AnimalIntake">
+              <PropertyRef Name="facility_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimalOutcome_Org_Facility">
+          <End Role="Org_Facility" Type="Self.Org_Facility" Multiplicity="1" />
+          <End Role="AnimalOutcome" Type="Self.AnimalOutcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org_Facility">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AnimalOutcome">
+              <PropertyRef Name="facility_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_Facility_Org_Facility">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1" />
+          <End Role="Org_Facility" Type="Self.Org_Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Org_Facility">
+              <PropertyRef Name="Org_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SDCAV2ModelStoreContainer">
+          <EntitySet Name="AnimalCounts" EntityType="Self.AnimalCounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnimalIntake" EntityType="Self.AnimalIntake" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnimalOutcome" EntityType="Self.AnimalOutcome" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Org_Facility" EntityType="Self.Org_Facility" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AnimalCounts_Org_Facility" Association="Self.FK_AnimalCounts_Org_Facility">
+            <End Role="Org_Facility" EntitySet="Org_Facility" />
+            <End Role="AnimalCounts" EntitySet="AnimalCounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimalIntake_Org_Facility" Association="Self.FK_AnimalIntake_Org_Facility">
+            <End Role="Org_Facility" EntitySet="Org_Facility" />
+            <End Role="AnimalIntake" EntitySet="AnimalIntake" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimalOutcome_Org_Facility" Association="Self.FK_AnimalOutcome_Org_Facility">
+            <End Role="Org_Facility" EntitySet="Org_Facility" />
+            <End Role="AnimalOutcome" EntitySet="AnimalOutcome" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_Facility_Org_Facility" Association="Self.FK_Org_Facility_Org_Facility">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Org_Facility" EntitySet="Org_Facility" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SDCAV2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AnimalCount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="facility_id" Type="Guid" Nullable="false" />
+          <Property Name="user_id" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="Int32" />
+          <Property Name="RecordYear" Type="Int32" Nullable="false" />
+          <Property Name="RecordMonth" Type="Int32" Nullable="false" />
+          <Property Name="AdultC" Type="Int32" />
+          <Property Name="AdultF" Type="Int32" />
+          <Property Name="UT5MC" Type="Int32" />
+          <Property Name="UT5MF" Type="Int32" />
+          <Property Name="AgeUnknownC" Type="Int32" />
+          <Property Name="AgeUnknownF" Type="Int32" />
+          <Property Name="AnimalCountType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Org_Facility" Relationship="Self.FK_AnimalCounts_Org_Facility" FromRole="AnimalCounts" ToRole="Org_Facility" />
+        </EntityType>
+        <EntityType Name="AnimalIntake">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="facility_id" Type="Guid" Nullable="false" />
+          <Property Name="user_id" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="Int32" />
+          <Property Name="RecordYear" Type="Int32" Nullable="false" />
+          <Property Name="RecordMonth" Type="Int32" Nullable="false" />
+          <Property Name="AdultC_StrayAtLarge" Type="Int32" />
+          <Property Name="UT5MC_StrayAtLarge" Type="Int32" />
+          <Property Name="AdultF_StrayAtLarge" Type="Int32" />
+          <Property Name="UT5MF_StrayAtLarge" Type="Int32" />
+          <Property Name="AdultC_RelinquishedByOwner" Type="Int32" />
+          <Property Name="UT5MC_RelinquishedByOwner" Type="Int32" />
+          <Property Name="AdultF_RelinquishedByOwner" Type="Int32" />
+          <Property Name="UT5MF_RelinquishedByOwner" Type="Int32" />
+          <Property Name="AdultC_OwnerRequestedEuthanasia" Type="Int32" />
+          <Property Name="UT5MC_OwnerRequestedEuthanasia" Type="Int32" />
+          <Property Name="AdultF_OwnerRequestedEuthanasia" Type="Int32" />
+          <Property Name="UT5MF_OwnerRequestedEuthanasia" Type="Int32" />
+          <Property Name="AdultC_TransferredFromAgency" Type="Int32" />
+          <Property Name="UT5MC_TransferredFromAgency" Type="Int32" />
+          <Property Name="Adultf_TransferredFromAgency" Type="Int32" />
+          <Property Name="UT5Mf_TransferredFromAgency" Type="Int32" />
+          <Property Name="AdultC_OtherIntakes" Type="Int32" />
+          <Property Name="UT5MC_OtherIntakes" Type="Int32" />
+          <Property Name="AdultF_OtherIntakes" Type="Int32" />
+          <Property Name="UT5MF_OtherIntakes" Type="Int32" />
+          <Property Name="AgeUnknownC_StrayAtLarge" Type="Int32" />
+          <Property Name="AgeUnknownF_StrayAtLarge" Type="Int32" />
+          <Property Name="AgeUnknownC_RelinquishedByOwner" Type="Int32" />
+          <Property Name="AgeUnknownF_RelinquishedByOwner" Type="Int32" />
+          <Property Name="AgeUnknownC_OwnerRequestedEuthenasia" Type="Int32" />
+          <Property Name="AgeUnknownF_OwnerRequestedEuthenasia" Type="Int32" />
+          <Property Name="AgeUnknownC_TransferredFromAgency" Type="Int32" />
+          <Property Name="AgeUnknownF_TransferredFromAgency" Type="Int32" />
+          <Property Name="AgeUnknownC_OtherIntakes" Type="Int32" />
+          <Property Name="AgeUnknownF_OtherIntakes" Type="Int32" />
+          <Property Name="C_ReturnToField" Type="Int32" />
+          <Property Name="F_ReturnToField" Type="Int32" />
+          <NavigationProperty Name="Org_Facility" Relationship="Self.FK_AnimalIntake_Org_Facility" FromRole="AnimalIntake" ToRole="Org_Facility" />
+        </EntityType>
+        <EntityType Name="AnimalOutcome">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="facility_id" Type="Guid" Nullable="false" />
+          <Property Name="user_id" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="RecordStatus" Type="Int32" />
+          <Property Name="RecordYear" Type="Int32" Nullable="false" />
+          <Property Name="RecordMonth" Type="Int32" Nullable="false" />
+          <Property Name="AdultC_Adoption" Type="Int32" />
+          <Property Name="UT5MC_Adoption" Type="Int32" />
+          <Property Name="AdultF_Adoption" Type="Int32" />
+          <Property Name="UT5MF_Adoption" Type="Int32" />
+          <Property Name="AdultC_ReturnedToOwner" Type="Int32" />
+          <Property Name="UT5MC_ReturnedToOwner" Type="Int32" />
+          <Property Name="AdultF_ReturnedToOwner" Type="Int32" />
+          <Property Name="UT5MF_ReturnedToOwner" Type="Int32" />
+          <Property Name="AdultC_TransferredToAnotherAgency" Type="Int32" />
+          <Property Name="UT5MC_TransferredToAnotherAgency" Type="Int32" />
+          <Property Name="AdultF_TransferredToAnotherAgency" Type="Int32" />
+          <Property Name="UT5MF_TransferredToAnotherAgency" Type="Int32" />
+          <Property Name="AdultC_ReturnedToField" Type="Int32" />
+          <Property Name="UT5MC_ReturnedToField" Type="Int32" />
+          <Property Name="Adultf_ReturnedToField" Type="Int32" />
+          <Property Name="UT5Mf_ReturnedToField" Type="Int32" />
+          <Property Name="AdultC_OtherLiveOutcome" Type="Int32" />
+          <Property Name="UT5MC_OtherLiveOutcome" Type="Int32" />
+          <Property Name="AdultF_OtherLiveOutcome" Type="Int32" />
+          <Property Name="UT5MF_OtherLiveOutcome" Type="Int32" />
+          <Property Name="AdultC_DiedInCare" Type="Int32" />
+          <Property Name="UT5MC_DiedInCare" Type="Int32" />
+          <Property Name="AdultF_DiedInCare" Type="Int32" />
+          <Property Name="UT5MF_DiedInCare" Type="Int32" />
+          <Property Name="AdultC_LostInCare" Type="Int32" />
+          <Property Name="UT5MC_LostInCare" Type="Int32" />
+          <Property Name="AdultF_LostInCare" Type="Int32" />
+          <Property Name="UT5MF_LostInCare" Type="Int32" />
+          <Property Name="AdultC_ShelterEuthanasia" Type="Int32" />
+          <Property Name="UT5MC_ShelterEuthanasia" Type="Int32" />
+          <Property Name="AdultF_ShelterEuthanasia" Type="Int32" />
+          <Property Name="UT5MF_ShelterEuthanasia" Type="Int32" />
+          <Property Name="AdultC_OwnerIntendedEuthanasia" Type="Int32" />
+          <Property Name="UT5MC_OwnerIntendedEuthanasia" Type="Int32" />
+          <Property Name="Adultf_OwnerIntendedEuthanasia" Type="Int32" />
+          <Property Name="UT5Mf_OwnerIntendedEuthanasia" Type="Int32" />
+          <Property Name="AgeUnknownC_Adoption" Type="Int32" />
+          <Property Name="AgeUnknownF_Adoption" Type="Int32" />
+          <Property Name="AgeUnknownC_ReturnedToOwner" Type="Int32" />
+          <Property Name="AgeUnknownF_ReturnedToOwner" Type="Int32" />
+          <Property Name="AgeUnknownC_TransferredToAnotherAgency" Type="Int32" />
+          <Property Name="AgeUnknownF_TransferredToAnotherAgency" Type="Int32" />
+          <Property Name="AgeUnknownC_ReturnedToField" Type="Int32" />
+          <Property Name="AgeUnknownF_ReturnedToField" Type="Int32" />
+          <Property Name="AgeUnknownC_OtherLiveOutcome" Type="Int32" />
+          <Property Name="AgeUnknownF_OtherLiveOutcome" Type="Int32" />
+          <Property Name="AgeUnknownC_DiedInCare" Type="Int32" />
+          <Property Name="AgeUnknownF_DiedInCare" Type="Int32" />
+          <Property Name="AgeUnknownC_LostInCare" Type="Int32" />
+          <Property Name="AgeUnknownF_LostInCare" Type="Int32" />
+          <Property Name="AgeUnknownC_ShelterEuthanasia" Type="Int32" />
+          <Property Name="AgeUnknownF_ShelterEuthanasia" Type="Int32" />
+          <Property Name="AgeUnknownC_OwnerIntendedEuthanasia" Type="Int32" />
+          <Property Name="AgeUnknownF_OwnerIntendedEuthanasia" Type="Int32" />
+          <NavigationProperty Name="Org_Facility" Relationship="Self.FK_AnimalOutcome_Org_Facility" FromRole="AnimalOutcome" ToRole="Org_Facility" />
+        </EntityType>
+        <EntityType Name="Org_Facility">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="Org_id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="EstCommIntake" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReminderSentDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AnimalCounts" Relationship="Self.FK_AnimalCounts_Org_Facility" FromRole="Org_Facility" ToRole="AnimalCounts" />
+          <NavigationProperty Name="AnimalIntakes" Relationship="Self.FK_AnimalIntake_Org_Facility" FromRole="Org_Facility" ToRole="AnimalIntake" />
+          <NavigationProperty Name="AnimalOutcomes" Relationship="Self.FK_AnimalOutcome_Org_Facility" FromRole="Org_Facility" ToRole="AnimalOutcome" />
+          <NavigationProperty Name="Organization" Relationship="Self.FK_Org_Facility_Org_Facility" FromRole="Org_Facility" ToRole="Organization" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebsiteURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Budget" Type="Int32" />
+          <Property Name="OrgEstAnnualIntake" Type="Int32" />
+          <Property Name="CommEstAnnualIntake" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AuthorizedPerson" Type="Int32" />
+          <Property Name="PrimaryContact" Type="Int32" />
+          <Property Name="SecondContact" Type="Int32" />
+          <Property Name="OtherContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Logo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SDCA_Application" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FacilityDetail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgreeCompleteDataMatrix" Type="Boolean" />
+          <Property Name="ShareData" Type="Boolean" />
+          <Property Name="SACReview" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ReferringOrg" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Org_Facility" Relationship="Self.FK_Org_Facility_Org_Facility" FromRole="Organization" ToRole="Org_Facility" />
+        </EntityType>
+        <Association Name="FK_AnimalCounts_Org_Facility">
+          <End Role="Org_Facility" Type="Self.Org_Facility" Multiplicity="1" />
+          <End Role="AnimalCounts" Type="Self.AnimalCount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org_Facility">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AnimalCounts">
+              <PropertyRef Name="facility_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimalIntake_Org_Facility">
+          <End Role="Org_Facility" Type="Self.Org_Facility" Multiplicity="1" />
+          <End Role="AnimalIntake" Type="Self.AnimalIntake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org_Facility">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AnimalIntake">
+              <PropertyRef Name="facility_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimalOutcome_Org_Facility">
+          <End Role="Org_Facility" Type="Self.Org_Facility" Multiplicity="1" />
+          <End Role="AnimalOutcome" Type="Self.AnimalOutcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org_Facility">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AnimalOutcome">
+              <PropertyRef Name="facility_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_Facility_Org_Facility">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="1" />
+          <End Role="Org_Facility" Type="Self.Org_Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Org_Facility">
+              <PropertyRef Name="Org_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SDCAV2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnimalCounts" EntityType="Self.AnimalCount" />
+          <EntitySet Name="AnimalIntakes" EntityType="Self.AnimalIntake" />
+          <EntitySet Name="AnimalOutcomes" EntityType="Self.AnimalOutcome" />
+          <EntitySet Name="Org_Facility" EntityType="Self.Org_Facility" />
+          <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <AssociationSet Name="FK_AnimalCounts_Org_Facility" Association="Self.FK_AnimalCounts_Org_Facility">
+            <End Role="Org_Facility" EntitySet="Org_Facility" />
+            <End Role="AnimalCounts" EntitySet="AnimalCounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimalIntake_Org_Facility" Association="Self.FK_AnimalIntake_Org_Facility">
+            <End Role="Org_Facility" EntitySet="Org_Facility" />
+            <End Role="AnimalIntake" EntitySet="AnimalIntakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimalOutcome_Org_Facility" Association="Self.FK_AnimalOutcome_Org_Facility">
+            <End Role="Org_Facility" EntitySet="Org_Facility" />
+            <End Role="AnimalOutcome" EntitySet="AnimalOutcomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_Facility_Org_Facility" Association="Self.FK_Org_Facility_Org_Facility">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Org_Facility" EntitySet="Org_Facility" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SDCAV2ModelStoreContainer" CdmEntityContainer="SDCAV2Entities">
+          <EntitySetMapping Name="AnimalCounts">
+            <EntityTypeMapping TypeName="SDCAV2Model.AnimalCount">
+              <MappingFragment StoreEntitySet="AnimalCounts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="facility_id" ColumnName="facility_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordYear" ColumnName="RecordYear" />
+                <ScalarProperty Name="RecordMonth" ColumnName="RecordMonth" />
+                <ScalarProperty Name="AdultC" ColumnName="AdultC" />
+                <ScalarProperty Name="AdultF" ColumnName="AdultF" />
+                <ScalarProperty Name="UT5MC" ColumnName="UT5MC" />
+                <ScalarProperty Name="UT5MF" ColumnName="UT5MF" />
+                <ScalarProperty Name="AgeUnknownC" ColumnName="AgeUnknownC" />
+                <ScalarProperty Name="AgeUnknownF" ColumnName="AgeUnknownF" />
+                <ScalarProperty Name="AnimalCountType" ColumnName="AnimalCountType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnimalIntakes">
+            <EntityTypeMapping TypeName="SDCAV2Model.AnimalIntake">
+              <MappingFragment StoreEntitySet="AnimalIntake">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="facility_id" ColumnName="facility_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordYear" ColumnName="RecordYear" />
+                <ScalarProperty Name="RecordMonth" ColumnName="RecordMonth" />
+                <ScalarProperty Name="AdultC_StrayAtLarge" ColumnName="AdultC_StrayAtLarge" />
+                <ScalarProperty Name="UT5MC_StrayAtLarge" ColumnName="UT5MC_StrayAtLarge" />
+                <ScalarProperty Name="AdultF_StrayAtLarge" ColumnName="AdultF_StrayAtLarge" />
+                <ScalarProperty Name="UT5MF_StrayAtLarge" ColumnName="UT5MF_StrayAtLarge" />
+                <ScalarProperty Name="AdultC_RelinquishedByOwner" ColumnName="AdultC_RelinquishedByOwner" />
+                <ScalarProperty Name="UT5MC_RelinquishedByOwner" ColumnName="UT5MC_RelinquishedByOwner" />
+                <ScalarProperty Name="AdultF_RelinquishedByOwner" ColumnName="AdultF_RelinquishedByOwner" />
+                <ScalarProperty Name="UT5MF_RelinquishedByOwner" ColumnName="UT5MF_RelinquishedByOwner" />
+                <ScalarProperty Name="AdultC_OwnerRequestedEuthanasia" ColumnName="AdultC_OwnerRequestedEuthanasia" />
+                <ScalarProperty Name="UT5MC_OwnerRequestedEuthanasia" ColumnName="UT5MC_OwnerRequestedEuthanasia" />
+                <ScalarProperty Name="AdultF_OwnerRequestedEuthanasia" ColumnName="AdultF_OwnerRequestedEuthanasia" />
+                <ScalarProperty Name="UT5MF_OwnerRequestedEuthanasia" ColumnName="UT5MF_OwnerRequestedEuthanasia" />
+                <ScalarProperty Name="AdultC_TransferredFromAgency" ColumnName="AdultC_TransferredFromAgency" />
+                <ScalarProperty Name="UT5MC_TransferredFromAgency" ColumnName="UT5MC_TransferredFromAgency" />
+                <ScalarProperty Name="Adultf_TransferredFromAgency" ColumnName="Adultf_TransferredFromAgency" />
+                <ScalarProperty Name="UT5Mf_TransferredFromAgency" ColumnName="UT5Mf_TransferredFromAgency" />
+                <ScalarProperty Name="AdultC_OtherIntakes" ColumnName="AdultC_OtherIntakes" />
+                <ScalarProperty Name="UT5MC_OtherIntakes" ColumnName="UT5MC_OtherIntakes" />
+                <ScalarProperty Name="AdultF_OtherIntakes" ColumnName="AdultF_OtherIntakes" />
+                <ScalarProperty Name="UT5MF_OtherIntakes" ColumnName="UT5MF_OtherIntakes" />
+                <ScalarProperty Name="AgeUnknownC_StrayAtLarge" ColumnName="AgeUnknownC_StrayAtLarge" />
+                <ScalarProperty Name="AgeUnknownF_StrayAtLarge" ColumnName="AgeUnknownF_StrayAtLarge" />
+                <ScalarProperty Name="AgeUnknownC_RelinquishedByOwner" ColumnName="AgeUnknownC_RelinquishedByOwner" />
+                <ScalarProperty Name="AgeUnknownF_RelinquishedByOwner" ColumnName="AgeUnknownF_RelinquishedByOwner" />
+                <ScalarProperty Name="AgeUnknownC_OwnerRequestedEuthenasia" ColumnName="AgeUnknownC_OwnerRequestedEuthenasia" />
+                <ScalarProperty Name="AgeUnknownF_OwnerRequestedEuthenasia" ColumnName="AgeUnknownF_OwnerRequestedEuthenasia" />
+                <ScalarProperty Name="AgeUnknownC_TransferredFromAgency" ColumnName="AgeUnknownC_TransferredFromAgency" />
+                <ScalarProperty Name="AgeUnknownF_TransferredFromAgency" ColumnName="AgeUnknownF_TransferredFromAgency" />
+                <ScalarProperty Name="AgeUnknownC_OtherIntakes" ColumnName="AgeUnknownC_OtherIntakes" />
+                <ScalarProperty Name="AgeUnknownF_OtherIntakes" ColumnName="AgeUnknownF_OtherIntakes" />
+                <ScalarProperty Name="C_ReturnToField" ColumnName="C_ReturnToField" />
+                <ScalarProperty Name="F_ReturnToField" ColumnName="F_ReturnToField" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnimalOutcomes">
+            <EntityTypeMapping TypeName="SDCAV2Model.AnimalOutcome">
+              <MappingFragment StoreEntitySet="AnimalOutcome">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="facility_id" ColumnName="facility_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+                <ScalarProperty Name="RecordYear" ColumnName="RecordYear" />
+                <ScalarProperty Name="RecordMonth" ColumnName="RecordMonth" />
+                <ScalarProperty Name="AdultC_Adoption" ColumnName="AdultC_Adoption" />
+                <ScalarProperty Name="UT5MC_Adoption" ColumnName="UT5MC_Adoption" />
+                <ScalarProperty Name="AdultF_Adoption" ColumnName="AdultF_Adoption" />
+                <ScalarProperty Name="UT5MF_Adoption" ColumnName="UT5MF_Adoption" />
+                <ScalarProperty Name="AdultC_ReturnedToOwner" ColumnName="AdultC_ReturnedToOwner" />
+                <ScalarProperty Name="UT5MC_ReturnedToOwner" ColumnName="UT5MC_ReturnedToOwner" />
+                <ScalarProperty Name="AdultF_ReturnedToOwner" ColumnName="AdultF_ReturnedToOwner" />
+                <ScalarProperty Name="UT5MF_ReturnedToOwner" ColumnName="UT5MF_ReturnedToOwner" />
+                <ScalarProperty Name="AdultC_TransferredToAnotherAgency" ColumnName="AdultC_TransferredToAnotherAgency" />
+                <ScalarProperty Name="UT5MC_TransferredToAnotherAgency" ColumnName="UT5MC_TransferredToAnotherAgency" />
+                <ScalarProperty Name="AdultF_TransferredToAnotherAgency" ColumnName="AdultF_TransferredToAnotherAgency" />
+                <ScalarProperty Name="UT5MF_TransferredToAnotherAgency" ColumnName="UT5MF_TransferredToAnotherAgency" />
+                <ScalarProperty Name="AdultC_ReturnedToField" ColumnName="AdultC_ReturnedToField" />
+                <ScalarProperty Name="UT5MC_ReturnedToField" ColumnName="UT5MC_ReturnedToField" />
+                <ScalarProperty Name="Adultf_ReturnedToField" ColumnName="Adultf_ReturnedToField" />
+                <ScalarProperty Name="UT5Mf_ReturnedToField" ColumnName="UT5Mf_ReturnedToField" />
+                <ScalarProperty Name="AdultC_OtherLiveOutcome" ColumnName="AdultC_OtherLiveOutcome" />
+                <ScalarProperty Name="UT5MC_OtherLiveOutcome" ColumnName="UT5MC_OtherLiveOutcome" />
+                <ScalarProperty Name="AdultF_OtherLiveOutcome" ColumnName="AdultF_OtherLiveOutcome" />
+                <ScalarProperty Name="UT5MF_OtherLiveOutcome" ColumnName="UT5MF_OtherLiveOutcome" />
+                <ScalarProperty Name="AdultC_DiedInCare" ColumnName="AdultC_DiedInCare" />
+                <ScalarProperty Name="UT5MC_DiedInCare" ColumnName="UT5MC_DiedInCare" />
+                <ScalarProperty Name="AdultF_DiedInCare" ColumnName="AdultF_DiedInCare" />
+                <ScalarProperty Name="UT5MF_DiedInCare" ColumnName="UT5MF_DiedInCare" />
+                <ScalarProperty Name="AdultC_LostInCare" ColumnName="AdultC_LostInCare" />
+                <ScalarProperty Name="UT5MC_LostInCare" ColumnName="UT5MC_LostInCare" />
+                <ScalarProperty Name="AdultF_LostInCare" ColumnName="AdultF_LostInCare" />
+                <ScalarProperty Name="UT5MF_LostInCare" ColumnName="UT5MF_LostInCare" />
+                <ScalarProperty Name="AdultC_ShelterEuthanasia" ColumnName="AdultC_ShelterEuthanasia" />
+                <ScalarProperty Name="UT5MC_ShelterEuthanasia" ColumnName="UT5MC_ShelterEuthanasia" />
+                <ScalarProperty Name="AdultF_ShelterEuthanasia" ColumnName="AdultF_ShelterEuthanasia" />
+                <ScalarProperty Name="UT5MF_ShelterEuthanasia" ColumnName="UT5MF_ShelterEuthanasia" />
+                <ScalarProperty Name="AdultC_OwnerIntendedEuthanasia" ColumnName="AdultC_OwnerIntendedEuthanasia" />
+                <ScalarProperty Name="UT5MC_OwnerIntendedEuthanasia" ColumnName="UT5MC_OwnerIntendedEuthanasia" />
+                <ScalarProperty Name="Adultf_OwnerIntendedEuthanasia" ColumnName="Adultf_OwnerIntendedEuthanasia" />
+                <ScalarProperty Name="UT5Mf_OwnerIntendedEuthanasia" ColumnName="UT5Mf_OwnerIntendedEuthanasia" />
+                <ScalarProperty Name="AgeUnknownC_Adoption" ColumnName="AgeUnknownC_Adoption" />
+                <ScalarProperty Name="AgeUnknownF_Adoption" ColumnName="AgeUnknownF_Adoption" />
+                <ScalarProperty Name="AgeUnknownC_ReturnedToOwner" ColumnName="AgeUnknownC_ReturnedToOwner" />
+                <ScalarProperty Name="AgeUnknownF_ReturnedToOwner" ColumnName="AgeUnknownF_ReturnedToOwner" />
+                <ScalarProperty Name="AgeUnknownC_TransferredToAnotherAgency" ColumnName="AgeUnknownC_TransferredToAnotherAgency" />
+                <ScalarProperty Name="AgeUnknownF_TransferredToAnotherAgency" ColumnName="AgeUnknownF_TransferredToAnotherAgency" />
+                <ScalarProperty Name="AgeUnknownC_ReturnedToField" ColumnName="AgeUnknownC_ReturnedToField" />
+                <ScalarProperty Name="AgeUnknownF_ReturnedToField" ColumnName="AgeUnknownF_ReturnedToField" />
+                <ScalarProperty Name="AgeUnknownC_OtherLiveOutcome" ColumnName="AgeUnknownC_OtherLiveOutcome" />
+                <ScalarProperty Name="AgeUnknownF_OtherLiveOutcome" ColumnName="AgeUnknownF_OtherLiveOutcome" />
+                <ScalarProperty Name="AgeUnknownC_DiedInCare" ColumnName="AgeUnknownC_DiedInCare" />
+                <ScalarProperty Name="AgeUnknownF_DiedInCare" ColumnName="AgeUnknownF_DiedInCare" />
+                <ScalarProperty Name="AgeUnknownC_LostInCare" ColumnName="AgeUnknownC_LostInCare" />
+                <ScalarProperty Name="AgeUnknownF_LostInCare" ColumnName="AgeUnknownF_LostInCare" />
+                <ScalarProperty Name="AgeUnknownC_ShelterEuthanasia" ColumnName="AgeUnknownC_ShelterEuthanasia" />
+                <ScalarProperty Name="AgeUnknownF_ShelterEuthanasia" ColumnName="AgeUnknownF_ShelterEuthanasia" />
+                <ScalarProperty Name="AgeUnknownC_OwnerIntendedEuthanasia" ColumnName="AgeUnknownC_OwnerIntendedEuthanasia" />
+                <ScalarProperty Name="AgeUnknownF_OwnerIntendedEuthanasia" ColumnName="AgeUnknownF_OwnerIntendedEuthanasia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Org_Facility">
+            <EntityTypeMapping TypeName="SDCAV2Model.Org_Facility">
+              <MappingFragment StoreEntitySet="Org_Facility">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Org_id" ColumnName="Org_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="EstCommIntake" ColumnName="EstCommIntake" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ReminderSentDate" ColumnName="ReminderSentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizations">
+            <EntityTypeMapping TypeName="SDCAV2Model.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="WebsiteURL" ColumnName="WebsiteURL" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="OrgEstAnnualIntake" ColumnName="OrgEstAnnualIntake" />
+                <ScalarProperty Name="CommEstAnnualIntake" ColumnName="CommEstAnnualIntake" />
+                <ScalarProperty Name="AuthorizedPerson" ColumnName="AuthorizedPerson" />
+                <ScalarProperty Name="PrimaryContact" ColumnName="PrimaryContact" />
+                <ScalarProperty Name="SecondContact" ColumnName="SecondContact" />
+                <ScalarProperty Name="OtherContact" ColumnName="OtherContact" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="SDCA_Application" ColumnName="SDCA_Application" />
+                <ScalarProperty Name="FacilityDetail" ColumnName="FacilityDetail" />
+                <ScalarProperty Name="AgreeCompleteDataMatrix" ColumnName="AgreeCompleteDataMatrix" />
+                <ScalarProperty Name="ShareData" ColumnName="ShareData" />
+                <ScalarProperty Name="SACReview" ColumnName="SACReview" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ReferringOrg" ColumnName="ReferringOrg" />
+                <ScalarProperty Name="EIN" ColumnName="EIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

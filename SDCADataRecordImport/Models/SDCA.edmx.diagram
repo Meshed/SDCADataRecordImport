@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de93f211f62c426c8b75ed1f35eabe97" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="SDCAV2Model.AnimalCount" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDCAV2Model.AnimalIntake" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDCAV2Model.AnimalOutcome" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDCAV2Model.Org_Facility" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDCAV2Model.Organization" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="SDCAV2Model.FK_AnimalCounts_Org_Facility" ManuallyRouted="false" />
+        <AssociationConnector Association="SDCAV2Model.FK_AnimalIntake_Org_Facility" ManuallyRouted="false" />
+        <AssociationConnector Association="SDCAV2Model.FK_AnimalOutcome_Org_Facility" ManuallyRouted="false" />
+        <AssociationConnector Association="SDCAV2Model.FK_Org_Facility_Org_Facility" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
